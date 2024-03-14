@@ -1,0 +1,18 @@
+form{
+  width: 600px;
+}
+
+mat-form-field {
+  width: 100%;
+
+}
+
+mat-dialog-actions{
+  justify-content: space-between;
+}
+.original-name{
+  font-size: 16px;
+}
+.original-name>span{
+  font-weight: lighter;
+}

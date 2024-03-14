@@ -1,0 +1,33 @@
+.user {
+  &__card {
+    background-color: #d8d8d8;
+    color: black;
+    width: 300px;
+    padding: 20px;
+    margin-top: 20px;
+
+    p > span {
+      font-weight: bold;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    &-button-holder {
+      display: flex;
+      justify-content: end;
+    }
+    &-delete {
+    background-color: cornflowerblue;
+      &:hover {
+        background: #457ada;
+      }
+      &:active {
+        background: cornflowerblue;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>
+  {{placeholdersDialog.dialogName}}
+  карточки пользователя №:
+  {{placeholdersDialog.userId}}
+</h1>
+<mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field
+       color="accent" appearance="fill">
+      <mat-label>Имя пользователя </mat-label>
+      <input type="text"
+             formControlName="name"
+             matInput
+             placeholder=""
+             aria-label="Name">
+      <mat-error *ngIf="getFieldErrors('name') as errors">
+        <span *ngIf="errors['required']">
+          Поле обязательно для заполнения
+        </span>
+        <span *ngIf="errors['pattern']">
+          Имя нормально пиши, да!
+        </span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      color="accent" appearance="fill">
+      <mat-label>E-Mail </mat-label>
+      <input formControlName="email"
+             type="text"
+             matInput
+             placeholder=""
+             aria-label="Email">
+      <mat-error *ngIf="getFieldErrors('email') as errors">
+        <span *ngIf="errors['required']">
+          Поле обязательно для заполнения
+        </span>
+        <span *ngIf="errors['email']">
+          E-mail указан не корректно
+        </span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      color="accent" appearance="fill">
+      <mat-label>Номер телефона </mat-label>
+      <input formControlName="phone"
+             type="text"
+             aria-label="Phone"
+             maxlength="20"
+             matInput>
+      <mat-error *ngIf="getFieldErrors('phone') as errors">
+        <span *ngIf="errors['required']">
+          Номер обязателен для заполнения
+        </span>
+        <span *ngIf="errors['minlength']">
+          Номер должен состоять из 10 цифр
+        </span>
+        <span *ngIf="errors['pattern']">
+          Номер должен содержать только цифры
+        </span>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close="">Отмена</button>
+  <button mat-button
+          (click)="closeDialog()"
+          [disabled]="userForm.invalid"
+  >{{placeholdersDialog.dialogBtn}}
+  </button>
+</mat-dialog-actions>
+
+
+

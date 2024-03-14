@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <mat-form-field color="accent"
+                    class="search-full-width">
+      <mat-label>
+        Введите Имя или id пользователя...
+      </mat-label>
+      <input type="text"
+             #searchInput
+             matInput
+             placeholder="..."
+             aria-label="Search">
+      <mat-icon>search</mat-icon>
+    </mat-form-field>
+
+  <button mat-raised-button
+          class="add-new-card__button"
+          (click)="createUserInList()"
+    > + Add New Card
+  </button>
+</mat-toolbar>
+<div>
+  <app-user-card
+    *ngFor="let user of userService.users | searchUser: searchInput.value"
+    [user]="user"
+    (removeUser)="deleteUserInList($event)"
+    (editUser)="editUserInList($event)"
+  ></app-user-card>
+</div>
+
+
+

@@ -1,0 +1,30 @@
+<mat-card class="user__card" *ngIf="user">
+  <mat-card-title>User №{{ user.id }}</mat-card-title>
+  <mat-card-content>
+    <p>
+      <span>Name:</span>
+      {{ user.name }}
+    </p>
+    <p>
+      <span>Email:</span>
+      {{ user.email }}
+    </p>
+    <p>
+      <span>Phone:</span>
+      {{ user.phone }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions align = "end">
+    <button mat-raised-button
+            class="user__card-delete"
+            (click)="openEditDialog(user)"
+    >Редактировать</button>
+
+    <button mat-raised-button
+            class="user__card-delete"
+            (click)="deleteUser(user.id)"
+    >Удалить</button>
+  </mat-card-actions>
+</mat-card>
+
